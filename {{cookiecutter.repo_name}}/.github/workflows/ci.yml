@@ -35,6 +35,11 @@ jobs:
       with:
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
         cache: 'pip'
+    - name: Make script executable
+      run: |
+        chmod +x ./ci/linux/create_venv.sh
+        chmod +x ./ci/linux/install_dependencies.sh
+        chmod +x ./ci/linux/test_unit.sh
     - run: |
         ./ci/linux/create_venv.sh
         ./ci/linux/install_dependencies.sh
@@ -79,6 +84,11 @@ jobs:
       with:
         python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
         cache: 'pip'
+    - name: Make script executable
+      run: |
+        chmod +x ./ci/linux/create_venv.sh
+        chmod +x ./ci/linux/install_dependencies.sh
+        chmod +x ./ci/linux/typecheck.sh
     - run: |
         ./ci/linux/create_venv.sh
         ./ci/linux/install_dependencies.sh
@@ -103,6 +113,11 @@ jobs:
         with:
           python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
           cache: 'pip'
+      - name: Make script executable
+        run: |
+            chmod +x ./ci/linux/create_venv.sh
+            chmod +x ./ci/linux/install_dependencies.sh
+            chmod +x ./ci/linux/build_python_package.sh
       - run: |
           ./ci/linux/create_venv.sh
           ./ci/linux/install_dependencies.sh
